@@ -28,7 +28,7 @@ app.use(
     cookie: { httpOnly: true, maxAge: 60 * 60 * 1000 }, // АЛЕКС говорим что хотим сделать с куками,  httpOnly: true значит, что нашу куку нельзя будет изменить с фронта
   }),
 );
-
+;
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId; // глобальная переменная userId теперь доступна во всех hbs
   next();
