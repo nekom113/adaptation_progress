@@ -1,0 +1,5 @@
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:text,password:text,isAdmin:boolean
+npx sequelize-cli model:generate --name Question --attributes title:text
+npx sequelize-cli model:generate --name Url --attributes url:text
+npx sequelize-cli model:generate --name Connection --attributes question_id:integer,url_id:integer,user_id:integer,recipient_id:integer
+
