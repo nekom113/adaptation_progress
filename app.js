@@ -2,13 +2,13 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
-const FilesStore = require('session-file-store')(session);
+const FileStore = require('session-file-store')(session);
 
 const PORT = process.env.PORT ?? 3000;
 const indexRouter = require('./routes/indexRouter');
 
 const app = express();
-hbs.registerPartials(path.join(process.env.PWD, 'views/partials'));
+// hbs.registerPartials(path.join(process.env.PWD, 'views/partials'));
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(process.env.PWD, 'views'));
@@ -28,7 +28,7 @@ app.use(
     cookie: { httpOnly: true, maxAge: 60 * 60 * 1000 }, // АЛЕКС говорим что хотим сделать с куками,  httpOnly: true значит, что нашу куку нельзя будет изменить с фронта
   }),
 );
-;
+
 app.use((req, res, next) => {
   res.locals.userId = req.session?.userId; // глобальная переменная userId теперь доступна во всех hbs
   next();
