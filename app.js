@@ -7,6 +7,7 @@ const FileStore = require('session-file-store')(session);
 const PORT = process.env.PORT ?? 3000;
 const indexRouter = require('./routes/indexRouter');
 const authUserRouter = require('./routes/authRouter');
+const formRouter = require('./routes/formRouter')
 
 const app = express();
 // hbs.registerPartials(path.join(process.env.PWD, 'views/partials'));
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/user/new_user', authUserRouter);
+app.use('/', formRouter);
 
 
 app.listen(PORT, () => {
