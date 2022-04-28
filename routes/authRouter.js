@@ -13,15 +13,16 @@ function serializeUser(user) {
   };
 }
 
+
 router
-  .route('/signin')
-  .get((req, res) => res.render('signin'))
+  .route('/')
+  .get((req, res) => res.render('login'))
   .post(async (req, res) => {
     const { email, password } = req.body;
     try {
       const user = await User.findOne({
         where: {
-          username,
+          usermail,
         },
         raw: true,
       });
@@ -38,6 +39,8 @@ router
       return failAuth(res);
     }
     return res.end();
+    
+
   });
 
 module.exports = router;

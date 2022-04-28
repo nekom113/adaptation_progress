@@ -6,11 +6,26 @@
       <div class='welcome'>Добро пожаловать!</div>
       <div class='subtitle'>Ввойдите в свою учетную запись!
       </div>
+
+      <form id="signinForm" method="POST" action="/signin">
+      
       <div class='input-fields'>
-        <input type='email' placeholder='Введите Email' class='input-line full-width'></input>
-        <input type='password' placeholder='Введите Пароль' class='input-line full-width'></input>
+
+
+        <label for="usermail">
+        <input id="usermail"  name="email" type='email' placeholder='Введите Email' class='input-line full-width'></input>
+        </label>
+
+
+        <label  for="password">
+        <input id="password" name="password" type='password' placeholder='Введите Пароль' class='input-line full-width'></input>
+        </label>
       </div>
-      <div><button class='ghost-round full-width'>Войти</button></div>
+      
+      <div><button type='submit' class='ghost-round full-width'>Войти</button></div>
+      </form>
+
+
     </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ const router = express.Router();
 router
   .route('/login')
   .get((req, res) => {
-    res.render('user/login');
+    res.render('login');
   })
   .post(async (req, res) => {
     const {

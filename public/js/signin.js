@@ -16,7 +16,7 @@ document.forms.singinForm?addEventListener('submit', async (event)=>{
                 'Content-Type':'application/json',
             }
             body: JSON.stringify({
-                username:event.target.username.value,
+                username: event.target.username.value,
                 password: event.target.password.value,
 
             }),
