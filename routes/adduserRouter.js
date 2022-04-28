@@ -5,22 +5,22 @@ const { User } = require('../db/models');
 const router = express.Router();
 
 router
-  .route('/login')
+  .route('/')
   .get((req, res) => {
-    res.render('login');
+    res.render('addUser');
   })
   .post(async (req, res) => {
     const {
-      nameUser, sernameUser, password, emailUser,
+      nameUser, password, emailUser,
     } = req.body;
     const hash = bcript.hashSync(password, 7);
     const currUser = await User.create({
       name: nameUser,
-      sernameUser: sername,
+      email: emailUser,
       password: hash,
-      emailUser: email,
+      is_admin: false,
     });
-    res.redirect('/')
+    res.redirect('/');
   });
 
 module.exports = router;

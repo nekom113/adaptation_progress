@@ -5,7 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const PORT = process.env.PORT ?? 3000;
-const indexRouter = require('./routes/indexRouter');
+const addUserRouter = require('./routes/adduserRouter');
 const authUserRouter = require('./routes/authRouter');
 
 const app = express();
@@ -23,7 +23,7 @@ app.use(
   session({
     secret: 'oh klahoma', // АЛЕКС для кэширования паролей, чтобы потом их шифровать
     resave: false, // АЛЕКС  если сама сессия не поменялась, то она не будет пересохраняться, если будет тру, то наоборот
-    store: new FilesStore(), // в соответствии с докой по session-file-store npm
+    store: new FileStore(), // в соответствии с докой по session-file-store npm
     saveUninitialized: false, //  АЛЕКС сессия будет создавать каждый раз когда заходишь на сайт
     name: 'sid', // имя нашей куки
     cookie: { httpOnly: true, maxAge: 60 * 60 * 1000 }, // АЛЕКС говорим что хотим сделать с куками,  httpOnly: true значит, что нашу куку нельзя будет изменить с фронта
@@ -35,9 +35,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/user/new_user', authUserRouter);
-
+app.use('/', authUserRouter);
+app.use('/user/new_user', addUserRouter);
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);
