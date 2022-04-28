@@ -13,7 +13,6 @@ function serializeUser(user) {
   };
 }
 
-
 router
   .route('/')
   .get((req, res) => res.render('login'))
@@ -39,8 +38,6 @@ router
       return failAuth(res);
     }
     return res.end();
-    
-
   });
 
 module.exports = router;
