@@ -13,7 +13,7 @@ router
     const {
       nameUser, password, emailUser,
     } = req.body;
-    const hash = bcript.hashSync(password, 7);
+    const hash = bcrypt.hashSync(password, 7);
     const currUser = await User.create({
       name: nameUser,
       email: emailUser,

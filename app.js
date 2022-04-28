@@ -7,6 +7,7 @@ const FileStore = require('session-file-store')(session);
 const PORT = process.env.PORT ?? 3000;
 const addUserRouter = require('./routes/adduserRouter');
 const authUserRouter = require('./routes/authRouter');
+const formRouter = require('./routes/formRouter')
 
 const app = express();
 // hbs.registerPartials(path.join(process.env.PWD, 'views/partials'));
