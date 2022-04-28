@@ -5,7 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const PORT = process.env.PORT ?? 3000;
-const indexRouter = require('./routes/indexRouter');
+const addUserRouter = require('./routes/adduserRouter');
 const authUserRouter = require('./routes/authRouter');
 const formRouter = require('./routes/formRouter')
 
@@ -36,10 +36,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/user/new_user', authUserRouter);
-app.use('/', formRouter);
-
+app.use('/', authUserRouter);
+app.use('/user/new_user', addUserRouter);
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);

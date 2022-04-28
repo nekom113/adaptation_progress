@@ -34,7 +34,7 @@ router
       }
       req.session.user = serializeUser(user);
     } catch (err) {
-      logger.error(err);
+      console.log(err);
       return failAuth(res);
     }
     return res.end();
