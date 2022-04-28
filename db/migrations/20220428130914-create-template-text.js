@@ -1,6 +1,6 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Connections', {
+    await queryInterface.createTable('TemplateTexts', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -34,32 +34,14 @@ module.exports = {
           key: 'id',
         },
       },
-      checked_question: {
-        type: Sequelize.BOOLEAN,
-        references: {
-          model: {
-            tableName: 'Questions',
-          },
-          key: 'id',
-        },
-      },
-      text_question: {
+      employee: {
         type: Sequelize.STRING,
-        references: {
-          model: {
-            tableName: 'Questions',
-          },
-          key: 'id',
-        },
       },
-      recipient_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'Users',
-          },
-          key: 'id',
-        },
+      mentor: {
+        type: Sequelize.STRING,
+      },
+      text_answer: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
@@ -72,6 +54,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Connections');
+    await queryInterface.dropTable('TemplateTexts');
   },
 };
