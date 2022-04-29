@@ -2,6 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
+const saltRounds = 1;
+
 const router = express.Router();
 
 router
@@ -13,13 +15,14 @@ router
     const {
       nameUser, password, emailUser,
     } = req.body;
-    const hash = bcrypt.hashSync(password, 7);
+    const hash = await bcrypt.hash(password, saltRounds);
     const currUser = await User.create({
       name: nameUser,
       email: emailUser,
-      password: hash,
       is_admin: false,
+      password: hash,
     });
+    req.session.userId = currUser.id;
     res.redirect('/');
   });
 

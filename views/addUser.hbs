@@ -1,16 +1,16 @@
-<form>
+<form action='/user/new_user' method='post'>
   <div>
     <label for="addUser">ФИО</label>
-    <input type="text" class="form-control" name="">
+    <input type="text" class="form-control" name="nameUser">
   </div>
   <div>
 <label for="email">Email</label>
-<input type="email" class="form-control" id="#">
+<input type="email" class="form-control" name="emailUser">
   </div>
     <div>
-<label for="password">Password</label>
-<input type="password" class="form-control" id="#">
+<label for="password" >Password</label>
+<input type="password" class="form-control" name='password'>
   </div>
    <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-success" type="button">Добавить пользователя</button></div>
+  <button class="btn btn-success" type="submit">Добавить пользователя</button></div>
 </form>
