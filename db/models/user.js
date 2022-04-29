@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.TemplateText, {
         foreignKey: 'user_id',
       });
+      this.hasMany(models.Url, {
+        foreignKey: 'user_id',
+      });
     }
   }
   User.init({
