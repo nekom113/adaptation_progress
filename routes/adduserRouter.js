@@ -20,7 +20,7 @@ router
       password: hash,
       is_admin: false,
     });
-    res.redirect('/');
+    res.sendStatus(200)
   });
 
 module.exports = router;
