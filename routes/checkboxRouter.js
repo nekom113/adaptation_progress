@@ -5,16 +5,15 @@ const {
 } = require('../db/models/index');
 const checkAuth = require('../middlewares/authCheck');
 
-router.route('/form/:urlUnique/:userId')
+router.route('/form/textdata/:urlUnique/')
   .post(async (req, res) => {
-    const { urlUnique, userId } = req.params;
+    const { urlUnique } = req.params;
     try {
       const { workerName, mentorName } = req.body;
       const uniqueUrl = await Url.findOne({ where: { url: urlUnique } });
-      const templateUserId = userId;
       const currentNames = await TemplateText.create({
         url_id: uniqueUrl.id,
-        user_id: templateUserId,
+        user_id: req.session.userId,
         employee: workerName,
         mentor: mentorName,
       });

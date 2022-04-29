@@ -5,13 +5,9 @@ const { User } = require('../db/models');
 const router = express.Router();
 
 router
-    .route('/login')
-    .get((req, res)=>{
-        res.render('user/login')
-    })
-
-
-
-
+  .route('/login')
+  .get((req, res) => {
+    res.render('user/login');
+  });
 
 module.exports = router;
