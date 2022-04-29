@@ -25,7 +25,7 @@ router
         },
         raw: true,
       });
-        if (!user) {
+      if (!user) {
         return failAuth(res);
       }
       const isValidPassword = await bcript.compare(password, user.password);
