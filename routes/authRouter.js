@@ -12,7 +12,6 @@ function serializeUser(user) {
     username: user.username,
   };
 }
-
 router
   .route('/')
   .get((req, res) => res.render('login'))
@@ -25,7 +24,7 @@ router
         },
         raw: true,
       });
-        if (!user) {
+      if (!user) {
         return failAuth(res);
       }
       const isValidPassword = await bcript.compare(password, user.password);
@@ -41,4 +40,7 @@ router
     return res.end();
   });
 
+router.get('/user/new', (req, res) => {
+  res.render('addWorker');
+});
 module.exports = router;

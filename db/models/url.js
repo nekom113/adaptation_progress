@@ -16,10 +16,14 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.TemplateText, {
         foreignKey: 'url_id',
       });
+      this.belongsTo(models.User, {
+        foreignKey: 'user_id',
+      });
     }
   }
   Url.init({
     url: DataTypes.TEXT,
+    user_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Url',
