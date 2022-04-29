@@ -1,0 +1,5 @@
+DB_NAME=adaptation_progress
+DB_USER=admin
+DB_PASS=123
+DB_PORT=5432
+PORT=3000
