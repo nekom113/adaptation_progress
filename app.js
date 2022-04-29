@@ -10,7 +10,7 @@ const authUserRouter = require('./routes/authRouter');
 const formRouter = require('./routes/formRouter');
 const checkRouter = require('./routes/checkboxRouter');
 const templateRouter = require('./routes/templateRouter');
-
+// const addWorkerRouter = require('./routes/addWorkerRouter');
 
 const app = express();
 // hbs.registerPartials(path.join(process.env.PWD, 'views/partials'));
@@ -39,14 +39,12 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.use('/', indexRouter);
-app.use('/user/new_user', authUserRouter);
+app.use('/', authUserRouter);
+app.use('/user/new_user', addUserRouter);
 app.use('/', formRouter);
 app.use('/', checkRouter);
 app.use('/', templateRouter);
-
-
+// app.use('/user/new_worker', addWorkerRouter);
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);
