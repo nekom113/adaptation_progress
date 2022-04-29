@@ -16,18 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Url, {
         foreignKey: 'url_id',
       });
-      this.belongsTo(models.Question, {
-        foreignKey: 'question_id',
-      });
     }
   }
   TemplateText.init({
-    question_id: DataTypes.INTEGER,
     url_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     employee: DataTypes.STRING,
     mentor: DataTypes.STRING,
-    text_answer: DataTypes.TEXT,
   }, {
     sequelize,
     modelName: 'TemplateText',
