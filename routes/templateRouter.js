@@ -11,7 +11,7 @@ router.route('/allforms/:userId')
     const url = await Url.findOne({ where: { user_id: userId } });
     try {
       const templateText = await TemplateText.findAll({ where: { user_id: userId, url_id: url } });
-      const templateBoolean = await TemplateBoolean.findAll({ where: { url_id: urlId, user_id: url } });
+      const templateBoolean = await TemplateBoolean.findAll({ where: { url_id: url, user_id: userId } });
       res.sendStatus(200);
     } catch (error) {
       console.log(error);
