@@ -5,6 +5,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const PORT = process.env.PORT ?? 3000;
+const indexRouter = require('./routes/indexRouter')
 const addUserRouter = require('./routes/adduserRouter');
 const authUserRouter = require('./routes/authRouter');
 const formRouter = require('./routes/formRouter');
