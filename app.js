@@ -5,12 +5,12 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
 const PORT = process.env.PORT ?? 3000;
+const indexRouter = require('./routes/indexRouter')
 const addUserRouter = require('./routes/adduserRouter');
 const authUserRouter = require('./routes/authRouter');
 const formRouter = require('./routes/formRouter');
 const checkRouter = require('./routes/checkboxRouter');
 const templateRouter = require('./routes/templateRouter');
-
 
 const app = express();
 // hbs.registerPartials(path.join(process.env.PWD, 'views/partials'));
@@ -39,14 +39,11 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.use('/', indexRouter);
-app.use('/user/new_user', authUserRouter);
+app.use('/', authUserRouter);
+app.use('/user/new_user', addUserRouter);
 app.use('/', formRouter);
 app.use('/', checkRouter);
 app.use('/', templateRouter);
-
-
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);

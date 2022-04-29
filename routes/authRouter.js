@@ -12,7 +12,6 @@ function serializeUser(user) {
     username: user.username,
   };
 }
-
 router
   .route('/')
   .get((req, res) => res.render('login'))
@@ -21,7 +20,7 @@ router
     try {
       const user = await User.findOne({
         where: {
-          usermail,
+          email,
         },
         raw: true,
       });
@@ -32,12 +31,16 @@ router
       if (!isValidPassword) {
         return failAuth(res);
       }
-      req.session.user = serializeUser(user);
+      req.session.userId = serializeUser(user);
     } catch (err) {
       console.log(err);
       return failAuth(res);
     }
+    res.redirect('/user/new_user');
     return res.end();
   });
 
+router.get('/user/new', (req, res) => {
+  res.render('addWorker');
+});
 module.exports = router;
