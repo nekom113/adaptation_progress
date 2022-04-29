@@ -7,15 +7,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      question_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: {
-            tableName: 'Questions',
-          },
-          key: 'id',
-        },
-      },
       url_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -39,9 +30,6 @@ module.exports = {
       },
       mentor: {
         type: Sequelize.STRING,
-      },
-      text_answer: {
-        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
