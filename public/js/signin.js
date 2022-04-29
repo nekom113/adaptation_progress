@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 function failSingin(singinForm) {
   singinForm.username.setCustomValidity('Неверное имя пользователя и/или пароль');
   singinForm.username.reportValidity();
